@@ -1,7 +1,7 @@
    /*
  * Create a list that holds all of your cards
  */
-const cardsFiles = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb" ];
+const cardsFiles = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 let cardValues = [];
 let cardIds = [];
 let cardMoves = 0;
@@ -19,8 +19,9 @@ const cardItem = document.querySelectorAll('.card')
 }*/
 
 function newGenerateCard() {
-   let output = shuffle(cardsFiles).map(function(cad){
-      return `<li class="card" id="card${cad}"><i class="${cad}"></i></li>`;
+   cardsFiles.shuffles()
+   let output = cardsFiles.map(function(card){
+      return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
 }
