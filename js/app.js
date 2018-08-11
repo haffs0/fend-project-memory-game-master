@@ -1,5 +1,4 @@
-window.onload = function () {
-    /*
+   /*
  * Create a list that holds all of your cards
  */
 const cardsFiles = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb" ];
@@ -21,13 +20,14 @@ function cardMatch(value) {
 
 function newGenerateCard() {
     cardMoves = 0;
-    let output = ' ';
-    cardFiles.shuffle(cardFiles);
+    let output = " ";
+    let shuffleCards = shuffle(cardFiles);
     for(let i = 0; i < cardFiles.length; i++) {
         output += '<li class="card" id=`card${i}`><i></i></li>'
     }
     cardList.appendChild(output);
 }
+window.onload = newGenerateCard();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -104,5 +104,4 @@ cardItem.addEventListener(click, function() {
 
 
 
-
-}
+ 
