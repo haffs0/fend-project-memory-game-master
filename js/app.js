@@ -14,20 +14,18 @@ const cardItem = document.querySelectorAll('.card')
  *   - add each card's HTML to the page
  */
 
-function cardMatch(value) {
+/*function cardMatch(value) {
     return value.reduce((n,m) => { n === m; });
-}
+}*/
 
 function newGenerateCard() {
-    cardMoves = 0;
-    let output = " ";
-    let shuffleCards = shuffle(cardsFiles);
-    for(let i = 0; i < cardsFiles.length; i++) {
-        output += '<li class="card" id=`card${i}`><i></i></li>'
-    }
+   let output = ' ';
+   let cardHTML = shuffle(cardsFiles).map(function(cad) {
+      output += '<li class="card" id=`card${cad}`><i class=`${cad}`></i></li>'
+  });
     cardList.innerHTML = output;
 }
-window.onload = newGenerateCard();
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -100,8 +98,8 @@ function shuffle(array) {
 
 cardItem.addEventListener(click, function() {
     cardFlipTile(this, cardFiles[shuffles()] );
-});
+});*/
 
-
+newGenerateCard();
 
  
