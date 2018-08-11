@@ -22,7 +22,7 @@ function cardMatch(value) {
 function newGenerateCard() {
     cardMoves = 0;
     let output = ' ';
-    cardFiles.shuffle();
+    cardFiles.shuffle(cardFiles);
     for(let i = 0; i < cardFiles.length; i++) {
         output += '<li class="card" id=`card${i}`><i></i></li>'
     }
