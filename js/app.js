@@ -14,9 +14,9 @@ const cardItem = document.querySelectorAll('.card')
  *   - add each card's HTML to the page
  */
 
-function cardMatch(value) {
+/*function cardMatch(value) {
     return value.reduce((n,m) => { n === m; });
-}
+}*/
 
 function newGenerateCard() {
    let output = ' ';
