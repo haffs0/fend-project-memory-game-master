@@ -22,7 +22,7 @@ function newGenerateCard() {
    let output = ' ';
    cardsFiles.shuffles();
    cardsFiles.map(function(cad) {
-      output += '<li class="card" id=`card${cad}`><i class=`${cad}`></i></li>'
+      return output += '<li class="card" id="card${cad}"><i class="${cad}"></i></li>';
   });
     cardList.innerHTML = output;
 }
