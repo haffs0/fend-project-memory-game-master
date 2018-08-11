@@ -1,8 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
-
-
+const cardsFiles = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb" ];
+let cardValues = [];
+let cardIds = [];
+let cardMoves = 0;
+const cardList = document.querySelector('.deck');
+const cardItem = document.querySelectorAll('.card')
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -10,6 +14,35 @@
  *   - add each card's HTML to the page
  */
 
+function cardMatch(value) {
+    return value.reduce((n,m) => { n === m; });
+}
+
+function newCard() {
+    cardMoves = 0;
+    let output = ' ';
+    cardFiles.shuffle();
+    for(let i = 0; i < cardFiles.length; i++) {
+        output += '<li class="card" id=`card${i}`></li>'
+    }
+    cardList.appendChild(output);
+}
+function cardFlipTile(cardd, val ) {
+    if (cardd.innerHTML === "" && cardValues.length < 2) {
+        cardd.classList.toggle("open");
+        cardd.classList.toggle("show");
+        let insideItem = '<i class=`${val}></i>';
+        cardd.appendChild(insideItem);
+        if (cardValues.length === 0) {
+            cardValues.push(val);
+            cardIds.push(cardd.id);
+        }
+        else if (cardValues === 1) {
+            cardValues.push(val);
+            cardIds.push(cardd.id);
+        }
+    }
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
