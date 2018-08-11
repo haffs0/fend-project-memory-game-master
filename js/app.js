@@ -19,10 +19,9 @@ function cardMatch(value) {
 }
 
 function newGenerateCard() {
-   let output = ' ';
    cardsFiles.shuffles();
-   cardsFiles.map(function(cad) {
-      return output += '<li class="card" id="card${cad}"></li>';
+   let output = cardsFiles.map(function(cad) {
+      return '<li class="card" id="card${cad}"><i class="{$cad}"></i></li>';
   });
     cardList.innerHTML = output;
 }
