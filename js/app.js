@@ -21,8 +21,8 @@ function cardMatch(value) {
 function newGenerateCard() {
     cardMoves = 0;
     let output = " ";
-    let shuffleCards = shuffle(cardFiles);
-    for(let i = 0; i < cardFiles.length; i++) {
+    let shuffleCards = shuffle(cardsFiles);
+    for(let i = 0; i < cardsFiles.length; i++) {
         output += '<li class="card" id=`card${i}`><i></i></li>'
     }
     cardList.appendChild(output);
