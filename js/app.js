@@ -19,8 +19,7 @@ const cardItem = document.querySelectorAll('.card')
 }*/
 
 function newGenerateCard() {
-   cardsFiles.shuffles()
-   let output = cardsFiles.map(function(card){
+   let output = shuffle(cardsFiles).map(function(card){
       return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
