@@ -21,7 +21,7 @@ function cardMatch(value) {
 function newGenerateCard() {
    let output = ' ';
    cardsFiles.shuffles();
-   for(let i = 0; i < cardsFiles.length; i++) {
+   cardsFiles.map(function(cad)  {
       output += '<li class="card" id="card${cad}"><i class="{$cad}"></i></li>';
   }
     cardList.innerHTML = output;
