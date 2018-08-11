@@ -14,10 +14,6 @@ const cardItem = document.querySelectorAll('.card')
  *   - add each card's HTML to the page
  */
 
-/*function cardMatch(value) {
-    return value.reduce((n,m) => { n === m; });
-}*/
-
 function newGenerateCard() {
    let output = shuffle(cardsFiles).map(function(card){
       return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
@@ -52,52 +48,55 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-/*function cardFlipTile(cardd, val ) {
-    if (cardd.innerHTML === "" && cardValues.length < 2) {
-        cardd.classList.toggle("open");
-        cardd.classList.toggle("show");
-        let insideItem = '<i class=`${val}></i>';
-        cardd.appendChild(insideItem);
-        if (cardValues.length === 0) {
-            cardValues.push(val);
-            cardIds.push(cardd.id);
-        }
-        else if (cardValues === 1) {
-            cardValues.push(val);
-            cardIds.push(cardd.id);
-            if(cardMatch(...cardValues)) {
-                cardMoves += 2;
-                //Clear both arrays
-                cardValues = [];
-                cardIds = [];
-                //Checkedn to see if the while board is cleared
-                if(cardMoves === cardFiles.length) {
-                    alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
-                    cardList.innerHTML = " ";
-                    newGenerateCard();
-                }
-            }
-        }
-    }
-    else {
-        function flipCard() {
-            if(!(cardMatch(...cardValues))) {
-                card1.classList.toggle('red');
-                card1.innerHTML = " ";
-                card2.classList.toggle('red');
-                card2.innerHTML = " ";
-                //Clear both arrays
-                cardValues = [];
-                cardIds = [];
-            }
-        }
-        setTimeOut(flipCard, 2000);
-    }
-}
 
-cardItem.addEventListener(click, function() {
-    cardFlipTile(this, cardFiles[shuffles()] );
-});*/
+function cardMatch(value) {
+    return value.reduce((n,m) => { n === m; });
+}
+function cardFlipTile(cardd, val ) {
+cardItem.forEach(funtion(card){
+   card.addEventListener(click, function(e) {
+          if (card === "" && cardValues.length < 2) {
+              card.classList.toggle("open");
+              card.classList.toggle("show");
+              card.classList.toggle("match");
+              if (cardValues.length === 0) {
+                  cardValues.push(val);
+                  cardIds.push(card.id);
+              }
+              else if (cardValues === 1) {
+                  cardValues.push(val);
+                  cardIds.push(card.id);
+                  if(cardMatch(...cardValues)) {
+                      cardMoves += 2;
+                      //Clear both arrays
+                      cardValues = [];
+                      cardIds = [];
+                      //Checkedn to see if the while board is cleared
+                      if(cardMoves === cardFiles.length) {
+                          alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
+                          cardList.innerHTML = " ";
+                          newGenerateCard();
+                      }
+                  }
+              }
+          }
+          else {
+              function flipCard() {
+                  if(!(cardMatch(...cardValues))) {
+                      card1.classList.toggle('red');
+                      card1.innerHTML = " ";
+                      card2.classList.toggle('red');
+                      card2.innerHTML = " ";
+                      //Clear both arrays
+                      cardValues = [];
+                      cardIds = [];
+                  }
+              }
+              setTimeOut(flipCard, 2000);
+          }
+   });              
+   });
+}
 
 newGenerateCard();
 
