@@ -14,15 +14,15 @@ const cardItem = document.querySelectorAll('.card')
  *   - add each card's HTML to the page
  */
 
-/*function cardMatch(value) {
+function cardMatch(value) {
     return value.reduce((n,m) => { n === m; });
-}*/
+}
 
 function newGenerateCard() {
    let output = ' ';
    cardsFiles.shuffles();
    cardsFiles.map(function(cad) {
-      return output += '<li class="card" id="card${cad}"><i class="${cad}"></i></li>';
+      return output += '<li class="card" id="card${cad}"></li>';
   });
     cardList.innerHTML = output;
 }
@@ -54,7 +54,7 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-/*function cardFlipTile(cardd, val ) {
+function cardFlipTile(cardd, val ) {
     if (cardd.innerHTML === "" && cardValues.length < 2) {
         cardd.classList.toggle("open");
         cardd.classList.toggle("show");
@@ -99,7 +99,7 @@ function shuffle(array) {
 
 cardItem.addEventListener(click, function() {
     cardFlipTile(this, cardFiles[shuffles()] );
-});*/
+});
 
 newGenerateCard();
 
