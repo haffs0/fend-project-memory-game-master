@@ -25,7 +25,7 @@ function newGenerateCard() {
     for(let i = 0; i < cardsFiles.length; i++) {
         output += '<li class="card" id=`card${i}`><i></i></li>'
     }
-    cardList.appendChild(output);
+    cardList.innerHTML = output;
 }
 window.onload = newGenerateCard();
 
