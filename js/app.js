@@ -2,7 +2,6 @@
  * Create a list that holds all of your cards
  */
 const cardsFiles = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
-let cardMoves = 0;
 const cardList = document.querySelector('.deck');
 
 /*
@@ -17,8 +16,7 @@ function newGenerateCard() {
       return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
-   
-   function cardFlipTile() {
+  
    let cardItem = document.querySelectorAll('.card');
    let cardValues = [];
    let cardIds = [];
@@ -59,8 +57,6 @@ function newGenerateCard() {
          }
    });              
    }
-}
-
 }
 
 
@@ -142,6 +138,31 @@ function winGame() {
     finalMoves.innerHTML = moveCounter.innerHTML;
     finalTime.innerHTML = timer.innerHTML;
   }
+}
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+};
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+//Play again button will clear modal and reset timer
+document.querySelector('.button').addEventListener('click', playAgain);
+document.querySelector('.button').addEventListener('click', resetTimer);
+document.querySelector('.restart').addEventListener('click', playAgain);
+
+function playAgain() {
+  modal.style.display = "none";
+  moveCounter.innerHTML = 0;
+  one.style.visibility = 'visible';
+  two.style.visibility = 'visible';
+}  
+  
 }
 
 newGenerateCard();
