@@ -61,7 +61,7 @@ allCards.forEach(function(card) {
       card.classList.add('open', 'show');
       
       if (cardsValues.length == 2) {
-        //moveCount();
+        countMoves();
         //If the cards matches leave it
         if (cardsValues[0].dataset.card == cardsValues[1].dataset.card) {
           cardsValues[0].classList.add('match');
@@ -88,6 +88,27 @@ allCards.forEach(function(card) {
     }
   });
 });
+   
+//Moves counter
+let moves = 0;
+let movesCounter = document.querySelector('.moves');
+let stars = document.querySelector('.stars');
+let firstStar = document.querySelector('.first_stars');
+let secondStar = document.querySelector('.second_stars');
+  
+function countMoves() {
+  moves++;
+  movesCounter.innerHTML = moves;
+//stars reduction  
+  if (moves > 16 && moves < 18) {
+    firstStar.style.visibility = 'hidden';
+  }
+  else if (moves > 19) {
+    secondStar.style.visibility = 'hidden';
+  } 
+}
+  
+   
 //Timer that resets with restart/play again buttons
 let stopwatch = document.querySelector('.stopwatch');
 var timing; 
