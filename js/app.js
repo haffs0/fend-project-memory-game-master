@@ -70,7 +70,6 @@ function cardFlipTile() {
                          cardValues[1].classList.add("match");
                          //Clear both arrays
                          cardValues = [];
-                         cardIds = [];
                          //Checkedn to see if the while board is cleared
                          if(cardMoves === cardFiles.length) {
                              alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
@@ -81,21 +80,16 @@ function cardFlipTile() {
               }
           }
           else {
-              function flipCard() {
-                      //flip the 2 card back over
-                      let card0 = document.getElementById(cardIds[0]);
-                      let card1 = document.getElementById(cardIds[1]);
-                      card0.classList.add('red');
-                      card0.innerHTML = " ";
-                      card1.classList.add('red');
-                      card1.innerHTML = " ";
-                      //Clear both arrays
-                      cardValues = [];
-                      cardIds = [];
-                 
-              }
-              setTimeOut(flipCard, 2000);
-          }
+               //If cards do not match, flip cards back over
+             setTimeout(function() {
+               cardValues.forEach(function(card) {
+                  card.classList.add('red');
+                  card.classList.remove('open', 'show');
+                  card.classList.remove('red');
+            });
+            cardValues = [];
+          }, 2000);
+         }
    });              
    }
 }
