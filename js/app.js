@@ -2,11 +2,9 @@
  * Create a list that holds all of your cards
  */
 const cardsFiles = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
-let cardValues = [];
-let cardIds = [];
 let cardMoves = 0;
 const cardList = document.querySelector('.deck');
-const cardItem = document.querySelectorAll('.card')
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -53,6 +51,9 @@ function cardMatch(value) {
     return value.reduce((n,m) => { n === m; });
 }
 function cardFlipTile() {
+   let cardItem = document.querySelectorAll('.card');
+   let cardValues = [];
+   let cardIds = [];
    cardItem.forEach(function(card){
       card.addEventListener('click', function(e) {
           if ( !card.classList.contains('open') &&
