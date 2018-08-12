@@ -126,14 +126,14 @@ function moveCount() {
 }
 
 let allMatchCards = document.getElementsByClassName('match');
-let winDispalyMessage = document.querySelector('.winning_display');
+let modal = document.querySelector('.modal');
 let finalTime = document.querySelector('.finalTime');
 let finalRating = document.querySelector('.finalRating');
 let finalMoves = document.querySelector('.finalMoves');
 
 function winGame() {  
   if (allMatchCards.length === 16) {
-    winDisplayMessage.style.display = "block";
+    modal.style.display = "block";
     finalRating.innerHTML = stars.innerHTML;
     finalMoves.innerHTML = moveCounter.innerHTML;
     finalTime.innerHTML = timer.innerHTML;
@@ -163,7 +163,6 @@ function playAgain() {
   two.style.visibility = 'visible';
 }  
   
-}
 
 newGenerateCard();
 
