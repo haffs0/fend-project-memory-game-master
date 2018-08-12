@@ -60,7 +60,7 @@ function cardFlipTile() {
                   card.classList.add('open', 'show');
                   if (cardValues.length === 2) {
                      cardMoves += 2;
-                     if(cardValues[0] === cardValues[1]) {
+                     if(cardValues[0].dataset.card === cardValues[1].dataset.card) {
                          cardValues[0].classList.add("open");
                          cardValues[0].classList.add("show");
                          cardValues[0].classList.add("match");
