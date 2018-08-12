@@ -174,7 +174,7 @@ Modal
 }
 @media screen and (min-width: 750px) {
     deck {
-    width: 90%;
+    width: 100%;
   }
   .deck .card {
     width: 100px;
