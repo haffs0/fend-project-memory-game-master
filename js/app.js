@@ -70,11 +70,9 @@ function cardFlipTile() {
                          cardValues[1].classList.add("match");
                          //Clear both arrays
                          cardValues = [];
-                         //Checkedn to see if the while board is cleared
-                         if(cardMoves === cardFiles.length) {
-                             alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
-                             cardList.innerHTML = " ";
-                             newGenerateCard();
+                         //Checked to see if the whole board is cleared
+                         winGame();
+                         
                          }
                      }
               }
@@ -92,6 +90,21 @@ function cardFlipTile() {
          }
    });              
    }
+}
+
+let allMatchCards = document.getElementsByClassName('match');
+let winDispalyMessage = document.querySelector('.winning_display');
+let finalTime = document.querySelector('.finalTime');
+let finalRating = document.querySelector('.finalRating');
+let finalMoves = document.querySelector('.finalMoves');
+
+function winGame() {  
+  if (allMatchCards.length === 16) {
+    winDisplayMessage.style.display = "block";
+    finalRating.innerHTML = stars.innerHTML;
+    finalMoves.innerHTML = moveCounter.innerHTML;
+    finalTime.innerHTML = timer.innerHTML;
+  }
 }
 
 newGenerateCard();
