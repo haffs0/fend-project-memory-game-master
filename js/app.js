@@ -19,6 +19,7 @@ function newGenerateCard() {
       return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
+    cardFlipTile();
 }
 
 
@@ -52,21 +53,28 @@ function shuffle(array) {
 function cardMatch(value) {
     return value.reduce((n,m) => { n === m; });
 }
-function cardFlipTile(cardd, val ) {
-cardItem.forEach(funtion(card){
+function cardFlipTile() {
+   cardItem.forEach(function(card){
    card.addEventListener(click, function(e) {
-          if (card === "" && cardValues.length < 2) {
-              card.classList.toggle("open");
-              card.classList.toggle("show");
-              card.classList.toggle("match");
-              if (cardValues.length === 0) {
-                  cardValues.push(val);
+          if ( !card.classList.contains('open') &&
+               !card.classList.contains('show') &&
+               !card.classList.contains('match')) {
+               card.classList.toggle("open");
+               card.classList.toggle("show");
+               if (cardValues.length === 0) {
+                  cardValues.push(card);
                   cardIds.push(card.id);
-              }
-              else if (cardValues === 1) {
-                  cardValues.push(val);
+               }
+               else if (cardValues === 1) {
+                  cardValues.push(card);
                   cardIds.push(card.id);
                   if(cardMatch(...cardValues)) {
+                      cardValues[0].classList.toggle("match");
+                     
+                      cardValues[0].classList.toggle("open");
+                      cardValues[0].classList.toggle("show");
+                      cardValues[0].classList.toggle("match");
+                     
                       cardMoves += 2;
                       //Clear both arrays
                       cardValues = [];
