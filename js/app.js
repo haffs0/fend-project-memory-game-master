@@ -45,7 +45,10 @@ function newGenerateCard() {
       return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
-  
+    cardFliping();
+   }
+
+ function CardFliping() {
    let cardItem = document.querySelectorAll('.card');
    let cardValues = [];
    let cardIds = [];
@@ -85,8 +88,7 @@ function newGenerateCard() {
           }, 2000);
          }
    });              
-   }
-   
+ }  
    
     // restart/play again buttons
 let timer = document.querySelector('.timer');
