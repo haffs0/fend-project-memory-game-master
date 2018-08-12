@@ -11,54 +11,6 @@ const cardList = document.querySelector('.deck');
  *   - add each card's HTML to the page
  */
 
-function newGenerateCard() {
-   let output = shuffle(cardsFiles).map(function(card){
-      return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
-  });
-    cardList.innerHTML = output.join('');
-  
-   let cardItem = document.querySelectorAll('.card');
-   let cardValues = [];
-   let cardIds = [];
-   for(let card of cardItem) {
-      card.addEventListener('click', function(e) {
-          if ( !card.classList.contains('open') &&
-               !card.classList.contains('show') &&
-               !card.classList.contains('match')) {
-                  cardValues.push(card);
-                  card.classList.add('open', 'show');
-                  if (cardValues.length === 2) {
-                     cardMoves += 2;
-                     if(cardValues[0].dataset.card === cardValues[1].dataset.card) {
-                         cardValues[0].classList.add("open");
-                         cardValues[0].classList.add("show");
-                         cardValues[0].classList.add("match");
-
-                         cardValues[1].classList.add("open");
-                         cardValues[1].classList.add("show");
-                         cardValues[1].classList.add("match");
-                         //Clear both arrays
-                         cardValues = [];
-                         //Checked to see if the whole board is cleared
-                         winGame();
-                     }
-              }
-          }
-          else {
-               //If cards do not match, flip cards back over
-             setTimeout(function() {
-               cardValues.forEach(function(card) {
-                  card.classList.add('red');
-                  card.classList.remove('open', 'show');
-                  card.classList.remove('red');
-            });
-            cardValues = [];
-          }, 2000);
-         }
-   });              
-   }
-}
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -88,7 +40,54 @@ function shuffle(array) {
  */
 
 
-// restart/play again buttons
+function newGenerateCard() {
+   let output = shuffle(cardsFiles).map(function(card){
+      return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
+  });
+    cardList.innerHTML = output.join('');
+  
+   let cardItem = document.querySelectorAll('.card');
+   let cardValues = [];
+   let cardIds = [];
+   for(let card of cardItem) {
+      card.addEventListener('click', function(e) {
+          if ( !card.classList.contains('open') &&
+               !card.classList.contains('show') &&
+               !card.classList.contains('match')) {
+                  cardValues.push(card);
+                  card.classList.add('open', 'show');
+                  if (cardValues.length == 2) {
+                     cardMoves += 2;
+                     if(cardValues[0].dataset.card == cardValues[1].dataset.card) {
+                         cardValues[0].classList.add("open");
+                         cardValues[0].classList.add("show");
+                         cardValues[0].classList.add("match");
+
+                         cardValues[1].classList.add("open");
+                         cardValues[1].classList.add("show");
+                         cardValues[1].classList.add("match");
+                         //Clear both arrays
+                         cardValues = [];
+                         //Checked to see if the whole board is cleared
+                         winGame();
+                     }
+              }
+          }
+          else {
+               //If cards do not match, flip cards back over
+             setTimeout(function() {
+               cardValues.forEach(function(card) {
+                  card.classList.add('red');
+                  card.classList.remove('open', 'show');
+                  card.classList.remove('red');
+            });
+            cardValues = [];
+          }, 2000);
+         }
+   });              
+   }
+   
+  // restart/play again buttons
 let timer = document.querySelector('.timer');
 var timing; 
 let second = 0; 
@@ -163,6 +162,12 @@ function playAgain() {
   two.style.visibility = 'visible';
 }  
   
+
+   
+}
+
+
+
 
 newGenerateCard();
 
