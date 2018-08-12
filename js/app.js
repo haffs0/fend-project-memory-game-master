@@ -14,7 +14,7 @@ const cardList = document.querySelector('.deck');
 
 function newGenerateCard() {
    let output = shuffle(cardsFiles).map(function(card){
-      return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
+      return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
    
