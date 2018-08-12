@@ -1,7 +1,7 @@
    /*
  * Create a list that holds all of your cards
  */
-const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+const playCards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 const deck = document.querySelector('.deck');
 
 /*
@@ -41,8 +41,8 @@ function shuffle(array) {
 
 
 function initGame() {
-  //startTimer();
-  let cardHTML = shuffle(cards).map(function(card) {
+  countTime();
+  let cardHTML = shuffle(playCards).map(function(card) {
     //return generateCard(card);
    return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
   });
@@ -62,7 +62,7 @@ allCards.forEach(function(card) {
       
       if (openCards.length == 2) {
         //moveCount();
-        //If cards match, leave facing up
+        //If the cards matches leave it
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           openCards[0].classList.add('match');
           openCards[0].classList.add('open');
@@ -88,14 +88,14 @@ allCards.forEach(function(card) {
     }
   });
 });
-/* Timer that resets with restart/play again buttons
-let timer = document.querySelector('.timer');
+//Timer that resets with restart/play again buttons
+let stopwatch = document.querySelector('.stopwatch');
 var timing; 
 let second = 0; 
 
-function startTimer() {
+function countTime() {
     timing = window.setInterval(function () {
-          timer.innerHTML = second + " secs";
+          stopwatch.innerHTML = second + " secs";
             second++;
         }, 1000);
 }
@@ -106,7 +106,7 @@ function resetTimer() {
 
 document.querySelector('.restart').addEventListener('click', resetTimer);  
 
-//Move counter
+/*Move counter
 let moves = 0;
 let moveCounter = document.querySelector('.moves');
 let stars = document.querySelector('.stars');
