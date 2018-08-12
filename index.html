@@ -17,14 +17,16 @@
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star one"></i></li>
+        		<li><i class="fa fa-star two"></i></li>
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
-
-            <div class="restart">
+        	<span class="moves">0</span> Moves
+            <span class="fa fa-clock-o">
+              <i class="timer"></i>
+           </span>
+            <div class="restart" onclick="newGenerateCard()">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
@@ -41,7 +43,7 @@
                  <p>Time to complete: <span class="finalTime"></span></p>
                  <p>Number of moves: <span class="finalMoves"></span></p>
                  <p>Star rating: <span class="finalRating"></span></p>
-                 <button class="button" onclick="initGame()">Play again?</button>
+                 <button class="button" onclick="newGenerateCard()">Play again?</button>
             </div>
   </div>
 </div>
