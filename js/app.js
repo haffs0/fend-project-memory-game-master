@@ -72,8 +72,6 @@ function cardFlipTile() {
                          cardValues = [];
                          //Checked to see if the whole board is cleared
                          winGame();
-                         
-                         }
                      }
               }
           }
@@ -90,6 +88,43 @@ function cardFlipTile() {
          }
    });              
    }
+}
+
+// restart/play again buttons
+let timer = document.querySelector('.timer');
+var timing; 
+let second = 0; 
+
+function startTimer() {
+    timing = window.setInterval(function () {
+          timer.innerHTML = second + " secs";
+            second++;
+        }, 2000);
+}
+  
+function resetTimer() {
+  clearInterval(timing);
+}
+
+document.querySelector('.restart').addEventListener('click', resetTimer); 
+
+//Move counter
+let moves = 0;
+let moveCounter = document.querySelector('.moves');
+let stars = document.querySelector('.stars');
+let one = document.querySelector('.one');
+let two = document.querySelector('.two');
+  
+function moveCount() {
+  moves++;
+  moveCounter.innerHTML = moves;
+//Begin removing stars based on move count  
+  if (moves > 16 && moves < 18) {
+    one.style.visibility = 'hidden';
+  }
+  else if (moves > 20) {
+    two.style.visibility = 'hidden';
+  } 
 }
 
 let allMatchCards = document.getElementsByClassName('match');
