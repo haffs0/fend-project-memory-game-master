@@ -42,7 +42,6 @@ function shuffle(array) {
 
 function initGame() {
   //startTimer();
-  let deck = document.querySelector('.deck');
   let cardHTML = shuffle(cards).map(function(card) {
     //return generateCard(card);
    return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
