@@ -50,29 +50,29 @@ function initGame() {
   deck.innerHTML = cardHTML.join('');
   
   let allCards = document.querySelectorAll('.card');
-  let openCards = [];  
+  let cardsValues = [];  
   
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
     
     if (
-      document.querySelector(".card").getElementsByTagName('i')[0].innerHTML == "" && openCards.length < 2) {
-      openCards.push(card);
+      document.querySelector(".card").getElementsByTagName('i')[0].innerHTML == "" && cardsValues.length < 2) {
+      cardsValues.push(card);
       card.classList.add('open', 'show');
       
-      if (openCards.length == 2) {
+      if (cardsValues.length == 2) {
         //moveCount();
         //If the cards matches leave it
-        if (openCards[0].dataset.card == openCards[1].dataset.card) {
-          openCards[0].classList.add('match');
-          openCards[0].classList.add('open');
-          openCards[0].classList.add('show');
+        if (cardsValues[0].dataset.card == cardsValues[1].dataset.card) {
+          cardsValues[0].classList.add('match');
+          cardsValues[0].classList.add('open');
+          cardsValues[0].classList.add('show');
           
-          openCards[1].classList.add('match');
-          openCards[1].classList.add('open');
-          openCards[1].classList.add('show');
+          cardsValues[1].classList.add('match');
+          cardsValues[1].classList.add('open');
+          cardsValues[1].classList.add('show');
           
-          openCards = [];
+          cardsValues = [];
           
           //winGame();
         } else {
