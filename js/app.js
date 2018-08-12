@@ -87,7 +87,8 @@ function newGenerateCard() {
    });              
    }
    
-  // restart/play again buttons
+   
+    // restart/play again buttons
 let timer = document.querySelector('.timer');
 var timing; 
 let second = 0; 
@@ -163,6 +164,7 @@ function playAgain() {
 }  
   
 
+ 
    
 }
 
