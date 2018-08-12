@@ -89,20 +89,22 @@ function cardFlipTile() {
           }
           else {
               function flipCard() {
-                  if(!(cardMatch(...cardValues))) {
-                      cardIds[0].classList.toggle('red');
-                      cardIds[0].innerHTML = " ";
-                      cardIds[1].classList.toggle('red');
-                      cardIds[1].innerHTML = " ";
+                      //flip the 2 card back over
+                      let card0 = document.getElementById(cardIds[0]);
+                      let card1 = document.getElementById(cardIds[1]);
+                      card0.classList.add('red');
+                      card0.innerHTML = " ";
+                      card1.classList.add('red');
+                      card1.innerHTML = " ";
                       //Clear both arrays
                       cardValues = [];
                       cardIds = [];
-                  }
+                 
               }
               setTimeOut(flipCard, 2000);
           }
    });              
-   });
+   }
 }
 
 newGenerateCard();
