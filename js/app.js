@@ -15,7 +15,6 @@ const cardItem = document.querySelectorAll('.card')
  */
 
 function newGenerateCard() {
-   cardFlipTile();
    let output = shuffle(cardsFiles).map(function(card){
       return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
   });
@@ -55,7 +54,7 @@ function cardMatch(value) {
 }
 function cardFlipTile() {
    cardItem.forEach(function(card){
-   card.addEventListener(click, function(e) {
+      card.addEventListener(click, function(e) {
           if ( !card.classList.contains('open') &&
                !card.classList.contains('show') &&
                !card.classList.contains('match')) {
@@ -107,5 +106,5 @@ function cardFlipTile() {
 }
 
 newGenerateCard();
-
+cardFlipTile();
  
