@@ -1,8 +1,8 @@
    /*
  * Create a list that holds all of your cards
  */
-const cardsFiles = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
-const cardList = document.querySelector('.deck');
+const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+const deck = document.querySelector('.deck');
 
 /*
  * Display the cards on the page
@@ -40,57 +40,59 @@ function shuffle(array) {
  */
 
 
-function newGenerateCard() {
-   let output = shuffle(cardsFiles).map(function(card){
-      return `<li class="card" data-card="${card}"><i class=" fa ${card}"></i></li>`;
+function initGame() {
+  //startTimer();
+  let deck = document.querySelector('.deck');
+  let cardHTML = shuffle(cards).map(function(card) {
+    //return generateCard(card);
+   return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
   });
-    cardList.innerHTML = output.join('');
-    cardFliping();
-   }
-
- function CardFliping() {
-   let cardItem = document.querySelectorAll('.card');
-   let cardValues = [];
-   let cardIds = [];
-   for(let card of cardItem) {
-      card.addEventListener('click', function(e) {
-          if ( !card.classList.contains('open') &&
-               !card.classList.contains('show') &&
-               !card.classList.contains('match')) {
-                  cardValues.push(card);
-                  card.classList.add('open', 'show');
-                  if (cardValues.length == 2) {
-                     cardMoves += 2;
-                     if(cardValues[0].dataset.card == cardValues[1].dataset.card) {
-                         cardValues[0].classList.add("open");
-                         cardValues[0].classList.add("show");
-                         cardValues[0].classList.add("match");
-
-                         cardValues[1].classList.add("open");
-                         cardValues[1].classList.add("show");
-                         cardValues[1].classList.add("match");
-                         //Clear both arrays
-                         cardValues = [];
-                         //Checked to see if the whole board is cleared
-                         winGame();
-                     }
-              }
-          }
-          else {
-               //If cards do not match, flip cards back over
-             setTimeout(function() {
-               cardValues.forEach(function(card) {
-                  card.classList.add('red');
-                  card.classList.remove('open', 'show');
-                  card.classList.remove('red');
+ 
+  deck.innerHTML = cardHTML.join('');
+  
+  let allCards = document.querySelectorAll('.card');
+  let openCards = [];  
+  
+allCards.forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    
+    if (
+      !card.classList.contains('open') &&
+      !card.classList.contains('show') &&
+      !card.classList.contains('match')
+    ) {
+      openCards.push(card);
+      card.classList.add('open', 'show');
+      
+      if (openCards.length == 2) {
+        //moveCount();
+        //If cards match, leave facing up
+        if (openCards[0].dataset.card == openCards[1].dataset.card) {
+          openCards[0].classList.add('match');
+          openCards[0].classList.add('open');
+          openCards[0].classList.add('show');
+          
+          openCards[1].classList.add('match');
+          openCards[1].classList.add('open');
+          openCards[1].classList.add('show');
+          
+          openCards = [];
+          
+          //winGame();
+        } else {
+          //If cards do not match, flip cards back over
+          setTimeout(function() {
+            openCards.forEach(function(card) {
+              card.classList.remove('open', 'show');
             });
-            cardValues = [];
-          }, 2000);
-         }
-   });              
- }  
-   
-    // restart/play again buttons
+            openCards = [];
+          }, 1000);
+        } 
+      }
+    }
+  });
+});
+/* Timer that resets with restart/play again buttons
 let timer = document.querySelector('.timer');
 var timing; 
 let second = 0; 
@@ -99,14 +101,14 @@ function startTimer() {
     timing = window.setInterval(function () {
           timer.innerHTML = second + " secs";
             second++;
-        }, 2000);
+        }, 1000);
 }
   
 function resetTimer() {
   clearInterval(timing);
 }
 
-document.querySelector('.restart').addEventListener('click', resetTimer); 
+document.querySelector('.restart').addEventListener('click', resetTimer);  
 
 //Move counter
 let moves = 0;
@@ -119,22 +121,26 @@ function moveCount() {
   moves++;
   moveCounter.innerHTML = moves;
 //Begin removing stars based on move count  
-  if (moves > 16 && moves < 18) {
+  if (moves > 12 && moves < 15) {
     one.style.visibility = 'hidden';
   }
-  else if (moves > 20) {
+  else if (moves > 17) {
     two.style.visibility = 'hidden';
   } 
 }
+  
 
-let allMatchCards = document.getElementsByClassName('match');
+Modal- tutorial from https://www.w3schools.com/howto/howto_css_modals.asp
+
+//When all cards match, change modal css so that modal is shown
+let matchedCards = document.getElementsByClassName('match');
 let modal = document.querySelector('.modal');
 let finalTime = document.querySelector('.finalTime');
 let finalRating = document.querySelector('.finalRating');
 let finalMoves = document.querySelector('.finalMoves');
 
 function winGame() {  
-  if (allMatchCards.length === 16) {
+  if (matchedCards.length === 16) {
     modal.style.display = "block";
     finalRating.innerHTML = stars.innerHTML;
     finalMoves.innerHTML = moveCounter.innerHTML;
@@ -163,16 +169,8 @@ function playAgain() {
   moveCounter.innerHTML = 0;
   one.style.visibility = 'visible';
   two.style.visibility = 'visible';
-}  
+}*/
   
-
- 
-   
 }
 
-
-
-
-newGenerateCard();
-
- 
+initGame();
