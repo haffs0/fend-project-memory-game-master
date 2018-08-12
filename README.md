@@ -1,5 +1,7 @@
 # Memory Game Project
-
+It a memory card game that player to guess. If the first click is the same with the second click the card
+remains open. if another clicks is made and the card is not the same it flip down back. the game still more functionalities 
+to make it work better.
 ## Table of Contents
 
 * [Instructions](#instructions)
@@ -19,3 +21,4 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # fend-project-memory-game-master
+https://haffs0.github.io/fend-project-memory-game-master/
