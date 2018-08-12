@@ -126,7 +126,7 @@ function resetTimer() {
 }
 
 document.querySelector('.restart').addEventListener('click', resetTimer);  
-
+//Modal- tutorial from https://www.w3schools.com/howto/howto_css_modals.asp
  //win messages section  
 let allMatchedCards = document.getElementsByClassName('match');
 let modal = document.querySelector('.modal');
