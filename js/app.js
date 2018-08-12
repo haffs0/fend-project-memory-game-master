@@ -74,7 +74,7 @@ allCards.forEach(function(card) {
           
           cardsValues = [];
           
-          //winGame();
+          winGame();
         } else {
           //If cards do not match, flip cards back over
           setTimeout(function() {
