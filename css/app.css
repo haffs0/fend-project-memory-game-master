@@ -172,6 +172,16 @@ Modal
     margin: 5px auto;
   }
 }
+@media screen and (min-width: 375px) {
+    deck {
+    width: 60%;
+  }
+  .deck .card {
+    width: 70px;
+    height: 70px;
+    margin: 5px auto;
+  }
+}
 @media screen and (min-width: 750px) {
     deck {
     width: 90%;
