@@ -15,11 +15,11 @@ const cardItem = document.querySelectorAll('.card')
  */
 
 function newGenerateCard() {
+   cardFlipTile();
    let output = shuffle(cardsFiles).map(function(card){
       return `<li class="card" id="card${card}"><i class=" fa ${card}"></i></li>`;
   });
     cardList.innerHTML = output.join('');
-    cardFlipTile();
 }
 
 
@@ -91,10 +91,10 @@ function cardFlipTile() {
           else {
               function flipCard() {
                   if(!(cardMatch(...cardValues))) {
-                      card1.classList.toggle('red');
-                      card1.innerHTML = " ";
-                      card2.classList.toggle('red');
-                      card2.innerHTML = " ";
+                      cardIds[0].classList.toggle('red');
+                      cardIds[0].innerHTML = " ";
+                      cardIds[1].classList.toggle('red');
+                      cardIds[1].innerHTML = " ";
                       //Clear both arrays
                       cardValues = [];
                       cardIds = [];
