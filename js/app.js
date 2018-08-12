@@ -103,6 +103,7 @@ function cardFlipTile() {
               }
               setTimeOut(flipCard, 2000);
           }
+      }
    });              
    }
 }
