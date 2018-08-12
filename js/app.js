@@ -59,33 +59,32 @@ function cardFlipTile() {
           if ( !card.classList.contains('open') &&
                !card.classList.contains('show') &&
                !card.classList.contains('match')) {
-               card.classList.toggle("open");
-               card.classList.toggle("show");
-               if (cardValues.length === 0) {
-                  cardValues.push(card);
-                  cardIds.push(card.id);
-               }
-               else if (cardValues.length === 1) {
-                  cardValues.push(card);
-                  cardIds.push(card.id);
-                  if(cardMatch(...cardValues)) {
-                      cardValues[0].classList.toggle("match");
-                     
-                      cardValues[1].classList.toggle("open");
-                      cardValues[1].classList.toggle("show");
-                      cardValues[1].classList.toggle("match");
-                     
-                      cardMoves += 2;
-                      //Clear both arrays
-                      cardValues = [];
-                      cardIds = [];
-                      //Checkedn to see if the while board is cleared
-                      if(cardMoves === cardFiles.length) {
-                          alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
-                          cardList.innerHTML = " ";
-                          newGenerateCard();
-                      }
+                  card.classList.add('open', 'show');
+                  if (cardValues.length === 0) {
+                     cardValues.push(card);
+                     cardIds.push(card.id);
                   }
+                  else if (cardValues.length === 1) {
+                     cardValues.push(card);
+                     cardIds.push(card.id);
+                     if(cardMatch(...cardValues)) {
+                         cardValues[0].classList.add("match");
+
+                         cardValues[1].classList.add("open");
+                         cardValues[1].classList.add("show");
+                         cardValues[1].classList.add("match");
+
+                         cardMoves += 2;
+                         //Clear both arrays
+                         cardValues = [];
+                         cardIds = [];
+                         //Checkedn to see if the while board is cleared
+                         if(cardMoves === cardFiles.length) {
+                             alert("Congratulation! you won with `${cardMoves}` and Stars Wooooooo!");
+                             cardList.innerHTML = " ";
+                             newGenerateCard();
+                         }
+                     }
               }
           }
           else {
