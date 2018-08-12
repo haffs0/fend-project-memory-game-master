@@ -47,9 +47,6 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-function cardMatch(value) {
-    return value.reduce((n,m) => { n === m; });
-}
 function cardFlipTile() {
    let cardItem = document.querySelectorAll('.card');
    let cardValues = [];
@@ -59,22 +56,18 @@ function cardFlipTile() {
           if ( !card.classList.contains('open') &&
                !card.classList.contains('show') &&
                !card.classList.contains('match')) {
+                  cardValues.push(card);
                   card.classList.add('open', 'show');
-                  if (cardValues.length === 0) {
-                     cardValues.push(card);
-                     cardIds.push(card.id);
-                  }
-                  else if (cardValues.length === 1) {
-                     cardValues.push(card);
-                     cardIds.push(card.id);
-                     if(cardMatch(...cardValues)) {
+                  if (cardValues.length === 2) {
+                     cardMoves += 2;
+                     if(cardValues[0].id.card == cardValues[1].id.card) {
+                         cardValues[0].classList.add("open");
+                         cardValues[0].classList.add("show");
                          cardValues[0].classList.add("match");
 
                          cardValues[1].classList.add("open");
                          cardValues[1].classList.add("show");
                          cardValues[1].classList.add("match");
-
-                         cardMoves += 2;
                          //Clear both arrays
                          cardValues = [];
                          cardIds = [];
