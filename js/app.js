@@ -100,10 +100,10 @@ function countMoves() {
   moves++;
   movesCounter.innerHTML = moves;
 //stars reduction  
-  if (moves > 16 && moves < 18) {
+  if (moves > 8 && moves < 10) {
     firstStar.style.visibility = 'hidden';
   }
-  else if (moves > 19) {
+  else if (moves > 16) {
     secondStar.style.visibility = 'hidden';
   } 
 }
@@ -127,41 +127,19 @@ function resetTimer() {
 
 document.querySelector('.restart').addEventListener('click', resetTimer);  
 
-/*Move counter
-let moves = 0;
-let moveCounter = document.querySelector('.moves');
-let stars = document.querySelector('.stars');
-let one = document.querySelector('.one');
-let two = document.querySelector('.two');
-  
-function moveCount() {
-  moves++;
-  moveCounter.innerHTML = moves;
-//Begin removing stars based on move count  
-  if (moves > 12 && moves < 15) {
-    one.style.visibility = 'hidden';
-  }
-  else if (moves > 17) {
-    two.style.visibility = 'hidden';
-  } 
-}
-  
-
-Modal- tutorial from https://www.w3schools.com/howto/howto_css_modals.asp
-
-//When all cards match, change modal css so that modal is shown
-let matchedCards = document.getElementsByClassName('match');
+ //win messages section  
+let allMatchedCards = document.getElementsByClassName('match');
 let modal = document.querySelector('.modal');
 let finalTime = document.querySelector('.finalTime');
 let finalRating = document.querySelector('.finalRating');
 let finalMoves = document.querySelector('.finalMoves');
 
 function winGame() {  
-  if (matchedCards.length === 16) {
+  if (allMatchedCards.length === 16) {
     modal.style.display = "block";
     finalRating.innerHTML = stars.innerHTML;
-    finalMoves.innerHTML = moveCounter.innerHTML;
-    finalTime.innerHTML = timer.innerHTML;
+    finalMoves.innerHTML = movesCounter.innerHTML;
+    finalTime.innerHTML = stopwatch.innerHTML;
   }
 }
 // Get the <span> element that closes the modal
@@ -183,11 +161,10 @@ document.querySelector('.restart').addEventListener('click', playAgain);
 
 function playAgain() {
   modal.style.display = "none";
-  moveCounter.innerHTML = 0;
-  one.style.visibility = 'visible';
-  two.style.visibility = 'visible';
-}*/
-  
+  movesCounter.innerHTML = 0;
+  firstStar.style.visibility = 'visible';
+  secondStar.style.visibility = 'visible';
+}
 }
 
 initGame();
