@@ -54,7 +54,7 @@ function cardFlipTile() {
    let cardItem = document.querySelectorAll('.card');
    let cardValues = [];
    let cardIds = [];
-   cardItem.forEach(function(card){
+   for(let card of cardItem) {
       card.addEventListener('click', function(e) {
           if ( !card.classList.contains('open') &&
                !card.classList.contains('show') &&
