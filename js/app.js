@@ -56,10 +56,7 @@ allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
     
     if (
-      !card.classList.contains('open') &&
-      !card.classList.contains('show') &&
-      !card.classList.contains('match')
-    ) {
+      document.querySelector(".card").getElementsByTagName('i')[0].innerHTML == "" && openCards.length < 2) {
       openCards.push(card);
       card.classList.add('open', 'show');
       
