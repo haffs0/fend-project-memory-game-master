@@ -111,3 +111,6 @@ h1 {
 .red {
     background-color: red;
 }
+.winning_display {
+    display: none;
+}
