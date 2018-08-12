@@ -54,7 +54,7 @@ function cardMatch(value) {
 }
 function cardFlipTile() {
    cardItem.forEach(function(card){
-      card.addEventListener(click, function(e) {
+      card.addEventListener('click', function(e) {
           if ( !card.classList.contains('open') &&
                !card.classList.contains('show') &&
                !card.classList.contains('match')) {
