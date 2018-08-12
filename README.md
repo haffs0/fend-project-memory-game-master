@@ -1,6 +1,6 @@
 # Memory Game Project
-It a memory card game that player to guess. If the first click is the same with the second click the card
-remains open. if another clicks is made and the card is not the same it flip down back. the game still more functionalities 
+It a memory card game that player guesses. If the first click is the same with the second click the card
+remains open. if another clicks is made and the card is not the same it flip down back. the game still need more functionalities 
 to make it work better.
 ## Table of Contents
 
