@@ -78,10 +78,10 @@ allCards.forEach(function(card) {
         } else {
           //If cards do not match, flip cards back over
           setTimeout(function() {
-            openCards.forEach(function(card) {
+            cardsValues.forEach(function(card) {
               card.classList.remove('open', 'show');
             });
-            openCards = [];
+            cardsValues = [];
           }, 1000);
         } 
       }
