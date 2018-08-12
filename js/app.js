@@ -64,15 +64,15 @@ function cardFlipTile() {
                   cardValues.push(card);
                   cardIds.push(card.id);
                }
-               else if (cardValues === 1) {
+               else if (cardValues.length === 1) {
                   cardValues.push(card);
                   cardIds.push(card.id);
                   if(cardMatch(...cardValues)) {
                       cardValues[0].classList.toggle("match");
                      
-                      cardValues[0].classList.toggle("open");
-                      cardValues[0].classList.toggle("show");
-                      cardValues[0].classList.toggle("match");
+                      cardValues[1].classList.toggle("open");
+                      cardValues[1].classList.toggle("show");
+                      cardValues[1].classList.toggle("match");
                      
                       cardMoves += 2;
                       //Clear both arrays
