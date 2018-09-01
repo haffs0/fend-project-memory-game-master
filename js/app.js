@@ -56,7 +56,7 @@ allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
     
     if (
-      document.querySelector(".card").getElementsByTagName('i')[0].innerHTML == "" && cardsValues.length < 2) {
+      document.querySelector(".card").getElementsByTagName('i').innerHTML == undefined && cardsValues.length < 2) {
       cardsValues.push(card);
       card.classList.add('open', 'show');
       
@@ -121,11 +121,14 @@ function countTime() {
         }, 1000);
 }
   
-function resetTimer() {
+function resetBtn() {
   clearInterval(timing);
+  movesCounter.innerHTML = 0;
+  firstStar.style.visibility = 'visible';
+  secondStar.style.visibility = 'visible';
 }
 
-document.querySelector('.restart').addEventListener('click', resetTimer);  
+document.querySelector('.restart').addEventListener('click', resetBtn);  
 //Modal- tutorial from https://www.w3schools.com/howto/howto_css_modals.asp
  //win messages section  
 let allMatchedCards = document.getElementsByClassName('match');
@@ -142,21 +145,10 @@ function winGame() {
     finalTime.innerHTML = stopwatch.innerHTML;
   }
 }
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-};
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+   
 //Play again button will clear modal and reset timer
 document.querySelector('.button').addEventListener('click', playAgain);
-document.querySelector('.button').addEventListener('click', resetTimer);
+document.querySelector('.button').addEventListener('click', resetBtn);
 document.querySelector('.restart').addEventListener('click', playAgain);
 
 function playAgain() {
