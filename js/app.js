@@ -64,13 +64,9 @@ allCards.forEach(function(card) {
         countMoves();
         //If the cards matches leave it
         if (cardsValues[0].dataset.card == cardsValues[1].dataset.card) {
-          cardsValues[0].classList.add('match');
-          cardsValues[0].classList.add('open');
-          cardsValues[0].classList.add('show');
-          
-          cardsValues[1].classList.add('match');
-          cardsValues[1].classList.add('open');
-          cardsValues[1].classList.add('show');
+          cardsValues.forEach(function(cardValue) {
+            cardValue.classList.add('match', 'open', 'show', 'disable');
+          });
           
           cardsValues = [];
           
@@ -79,7 +75,7 @@ allCards.forEach(function(card) {
           //If cards do not match, flip cards back over
           setTimeout(function() {
             cardsValues.forEach(function(card) {
-              card.classList.remove('open', 'show');
+              card.classList.remove('open', 'show', 'disable');
             });
             cardsValues = [];
           }, 1000);
