@@ -24,5 +24,6 @@ The star will reduces has the numbers moves become large.
 
 ## Dependencies
 * [Font Awesome](https://fontawesome.com/), for the vector icons.
+* [Google Font](https://fonts.googleapis.com).
 * [Hero Patterns](http://www.heropatterns.com/), for the SVG background patterns.
 * [How To Create a Modal Popup Box with CSS and JavaScript](https://www.w3schools.com/howto/howto_css_modals.asp).
